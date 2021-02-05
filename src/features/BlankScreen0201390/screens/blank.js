@@ -1,4 +1,5 @@
-import React from "react";
+import { connect } from "react-redux"
+import React from "react"
 import {
   View,
   Image,
@@ -10,32 +11,50 @@ import {
   TextInput,
   StyleSheet,
   ScrollView
-} from "react-native";
-import DateTimePicker from 'react-native-datepicker';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Slider from '@react-native-community/slider';
-import { CheckBox } from 'react-native-elements';
-import {SlideMenuIcon} from '../../../navigator/slideMenuIcon';
+} from "react-native"
+import DateTimePicker from "react-native-datepicker"
+import Icon from "react-native-vector-icons/FontAwesome"
+import Slider from "@react-native-community/slider"
+import { CheckBox } from "react-native-elements"
+import { SlideMenuIcon } from "../../../navigator/slideMenuIcon"
 
-export default class Blank extends React.Component {
-  static navigationOptions = ({navigation}) => {
-    return {
-      headerLeft: <SlideMenuIcon navigationProps={navigation} />,
-    };
-  };
-  
-  state = {};
+class Blank extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+  static navigationOptions = ({ navigation }) => {
+    return { headerLeft: <SlideMenuIcon navigationProps={navigation} /> }
+  }
 
   render = () => (
-    <View style={styles.container}>
-      <Text>This is your new component</Text>
-    </View>
-  );
+    <ImageBackground
+      source={{
+        uri:
+          "https://d3tklmlrp1a8c2.cloudfront.net/media/resources/project/24330/f35fb6ab-b9b7-4082-8f4e-75816e4a3a05.png"
+      }}
+      style={styles.ImageBackground_1}
+    >
+      <Image
+        resizeMode="contain"
+        source={{
+          uri:
+            "https://d3tklmlrp1a8c2.cloudfront.net/media/resources/project/24330/b70bcdfa-89ec-465e-90e9-d1b7a2a50f4e.png"
+        }}
+        style={styles.Image_3}
+      />
+    </ImageBackground>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginHorizontal: 16,
-  },
-});
+  ImageBackground_1: { backgroundSize: "cover" },
+  Image_3: { alignSelf: "center" }
+})
+const mapStateToProps = state => {
+  return {}
+}
+const mapDispatchToProps = () => {
+  return {}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Blank)
